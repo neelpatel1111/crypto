@@ -33,7 +33,7 @@ const Home = () => {
                             }).map((item)=>(
                                 
                                 <tr>
-                                    <td scope="row">{item.rank}</td>
+                                    <td >{item.rank}</td>
                                     <td><Link to={`/chart/${item.id}`} >{item.name}</Link></td>
                                     <td>{item.symbol}</td>
                                     <td>{parseFloat(item.priceUsd).toFixed(3)}</td>
