@@ -16,33 +16,34 @@ const Home = () => {
             <h3 className='text-success my-3'>Cryptocurrencies</h3>
             <div>
                 <input className="form-control w-50 my-3" value={serach_value} onChange={(e)=>{setSearch_value(e.target.value)}} placeholder='Search Here...' />
-                
-                <table className='table table-striped mt-4'>
-                    <thead className='table-dark'>
-                        <tr >
-                            <th>RANK</th>
-                            <th>Name</th>
-                            <th>Symbol</th>
-                            <th>Price($ USD)</th>
-                            <th>ChangeIn24Hr(%)</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {crypt_data.filter((val) => {
-                            return val.name.toLowerCase().includes(serach_value.toLowerCase());
-                        }).map((item)=>(
-                            
-                            <tr>
-                                <td>{item.rank}</td>
-                                <td><Link to={`/chart/${item.id}`} >{item.name}</Link></td>
-                                <td>{item.symbol}</td>
-                                <td>{parseFloat(item.priceUsd).toFixed(3)}</td>
-                                <td>{parseFloat(item.changePercent24Hr).toFixed(3)}</td>
+                <div className='table-responsive'>
+                    <table className='table table-striped mt-4'>
+                        <thead className='table-dark'>
+                            <tr >
+                                <th scope="col">RANK</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Symbol</th>
+                                <th scope="col">Price($ USD)</th>
+                                <th scope="col">ChangeIn24Hr(%)</th>
                             </tr>
-                        ))}
+                        </thead>
+                        <tbody>
+                            {crypt_data.filter((val) => {
+                                return val.name.toLowerCase().includes(serach_value.toLowerCase());
+                            }).map((item)=>(
+                                
+                                <tr>
+                                    <td scope="row">{item.rank}</td>
+                                    <td><Link to={`/chart/${item.id}`} >{item.name}</Link></td>
+                                    <td>{item.symbol}</td>
+                                    <td>{parseFloat(item.priceUsd).toFixed(3)}</td>
+                                    <td>{parseFloat(item.changePercent24Hr).toFixed(3)}</td>
+                                </tr>
+                            ))}
 
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
+                </div>
             </div>
             </div>
     )

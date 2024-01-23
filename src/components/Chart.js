@@ -66,53 +66,58 @@ const Chart = () => {
     <>
       <Link to="/" className='btn btn-outline-dark mt-3 mx-3'>Back</Link>
 
-      <div className='container d-flex justify-content-around m-auto'>
+      <div className='container'>   
+        <div className='row'>
 
-          <div className='container w-75 p-3'>
-            <h3 className='text-primary mx-4'>Chart of {id}({timeframe})</h3>
-            {loading ? (
-              <div>Loading...</div>
-            ) : (
+            <div className='col-lg-6'>
+              <div className='m-2'>
+                  <h3 className='text-primary mx-4'>Chart of {id}({timeframe})</h3>
+                  {loading ? (
+                    <div>Loading...</div>
+                  ) : (
 
-              <Line data={chartdata} 
-                options={ {
-                  elements: { 
-                    point:{ 
-                      radius: 0 
-                    } 
-                  },
-                  plugins: {
-                    legend: {
-                      display: false
-                    }
-                  }
-                }}/>
+                    <Line data={chartdata} 
+                      options={ {
+                        elements: { 
+                          point:{ 
+                            radius: 0 
+                          } 
+                        },
+                        plugins: {
+                          legend: {
+                            display: false
+                          }
+                        }
+                      }}/>
 
-            )}
+                  )}
 
-            {/* //Timeline Controller */}
-            <div className='mx-5'>
-                <button className='btn btn-primary mx-1' onClick={(e)=>{setTimeframe('m15')}}>15m</button>
-                <button className='btn btn-primary mx-1' onClick={(e)=>{setTimeframe('h1')}}>1h</button>
-                <button className='btn btn-primary mx-1' onClick={(e)=>{setTimeframe('h6')}}>6h</button>
-                <button className='btn btn-primary mx-1' onClick={(e)=>{setTimeframe('d1')}}>1d</button>
+                  {/* //Timeline Controller */}
+                  <div className='mx-5'>
+                      <button className='btn btn-primary mx-1' onClick={(e)=>{setTimeframe('m15')}}>15m</button>
+                      <button className='btn btn-primary mx-1' onClick={(e)=>{setTimeframe('h1')}}>1h</button>
+                      <button className='btn btn-primary mx-1' onClick={(e)=>{setTimeframe('h6')}}>6h</button>
+                      <button className='btn btn-primary mx-1' onClick={(e)=>{setTimeframe('d1')}}>1d</button>
+                  </div>
+              </div>
             </div>
 
-          </div>
 
-          <div className='container w-25 pt-4 mt-5 border rounded'>
-              <h5><b className=' text-success '>Name: </b>{info.name}</h5>
-              <h5><b className=' text-success '>Symbol: </b>{info.symbol}</h5>
-              <h5><b className=' text-success '>Market Cap. (USD) : </b>{parseFloat(info.marketCapUsd).toFixed(3)}</h5>
-              <h5><b className=' text-success '>Current Price(USD): </b>{parseFloat(info.priceUsd).toFixed(3)}</h5>
-              <h5><b className=' text-success '>Change % 24hr: </b>{parseFloat(info.changePercent24Hr).toFixed(3)}</h5>
-              <h5><b className=' text-success '>Volume USD 24hr: </b>{parseFloat(info.volumeUsd24Hr).toFixed(3)}</h5>
-              <h5><b className=' text-success '>export: </b><a href={`https://www.blockchain.com/explorer/assets/${info.symbol}`}>Click here...</a></h5>
-          </div>
+            <div className='col-lg-6'>
+                <div className='m-2 p-2 border rounded'>
+                  <h5><b className=' text-success '>Name: </b>{info.name}</h5>
+                  <h5><b className=' text-success '>Symbol: </b>{info.symbol}</h5>
+                  <h5><b className=' text-success '>Market Cap. (USD) : </b>{parseFloat(info.marketCapUsd).toFixed(3)}</h5>
+                  <h5><b className=' text-success '>Current Price(USD): </b>{parseFloat(info.priceUsd).toFixed(3)}</h5>
+                  <h5><b className=' text-success '>Change % 24hr: </b>{parseFloat(info.changePercent24Hr).toFixed(3)}</h5>
+                  <h5><b className=' text-success '>Volume USD 24hr: </b>{parseFloat(info.volumeUsd24Hr).toFixed(3)}</h5>
+                  <h5><b className=' text-success '>export: </b><a href={`https://www.blockchain.com/explorer/assets/${info.symbol}`}>Click here...</a></h5>
+                </div>
+            </div>
+
+        </div>
       </div>
-
     </>
-
   );
 };
 
