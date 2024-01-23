@@ -69,7 +69,7 @@ const Chart = () => {
       <div className='container'>   
         <div className='row'>
 
-            <div className='col-lg-6'>
+            <div className='col-lg-8'>
               <div className='m-2'>
                   <h3 className='text-primary mx-4'>Chart of {id}({timeframe})</h3>
                   {loading ? (
@@ -103,8 +103,8 @@ const Chart = () => {
             </div>
 
 
-            <div className='col-lg-6'>
-                <div className='m-2 p-2 border rounded'>
+            <div className='col-lg-4'>
+                <div className='m-2 mt-5 p-2 border rounded'>
                   <h5><b className=' text-success '>Name: </b>{info.name}</h5>
                   <h5><b className=' text-success '>Symbol: </b>{info.symbol}</h5>
                   <h5><b className=' text-success '>Market Cap. (USD) : </b>{parseFloat(info.marketCapUsd).toFixed(3)}</h5>
